@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  api:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./api/Dockerfile
+
+  main:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./algopack/Dockerfile
+    depends_on:
+      - api
+
+
+
+
